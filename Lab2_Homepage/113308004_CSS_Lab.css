@@ -1,0 +1,110 @@
+body {
+    color: black;
+    background-color: #f0f0f0;
+    font-family: Arial, helvetica, sans-serif;
+}
+.head {
+    background-color: #3b81c5;
+    text-align: center;
+    color: white;
+}
+h1 {
+    font-family: Georgia, Times New Roman, serif;
+    background-color: #3b81c5;
+    padding: 20px;
+}
+.triangle {
+    font-size: 10px; 
+    position: relative;
+    top: -2px;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;  
+    justify-content: space-around; 
+    overflow: visible;
+    position: relative;
+    top: 1em;
+    left: 0em;
+    width: 100%;
+}
+
+.navbar li {
+    color: white;
+}
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    min-width: 10em;
+    border-radius: 8px; 
+    overflow: hidden;
+}
+.dropdown-content li {
+    padding: 0;
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none; 
+    text-align: left;
+    line-height: 1.5em;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.navbar li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+}
+.navbar li a:hover {
+    color: #3b81c5
+}
+.dropdown-content li a:hover {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.gmail {
+    background-color: #3b81c5;
+    color: white;
+    padding: 2px 5px;
+}
+
+@media all { 
+    body { 
+        font-size: 1em; 
+    } 
+} 
+@media print { 
+    body { 
+        background-color: #f0f0f0; 
+        color: black; 
+    } 
+    .navbar { 
+            display: flex; 
+    }
+    .head {
+        background-color: #3b81c5;
+        color: white;
+    }
+}
