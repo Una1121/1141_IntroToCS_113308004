@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>113308004_HW7_1A2B</title>
+	<style>
+        .board {
+        border: 0.5px solid black;
+        padding: 10px;
+        margin-top: 10px;
+        width: 500px; 
+        min-height: 300px; 
+        overflow-y: auto; 
+        }
+    </style>
+
+</head>
+<body>
+	<h1>113308004_HW7_1A2B</h1>
+	<p>Enter 4 unique numbers 
+	    <input type = "text" id = "guessInput" placeholder= " "> 
+	    <button onclick="play()">Guess!</button>
+	</p>
+	<div class="board">
+        <div>Game Record:</div>
+        <div id="log"></div>
+    </div>
+	<script>
+    	var answer = generateAnswer();
+    	var attempts = 0;
+    	function generateAnswer(){
+    		var digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    		var ans = "";
+
+    		for (var i = 0; i < 4; i++){
+    		var index = Math.floor(Math.random() * digits.length);
+    		ans += digits[index]; 
+    		digits.splice(index, 1);
+    	    }
+    	    return ans;
+    	}
+
+    	function play() {
+            const inputField = document.getElementById("guessInput");
+            const guess = inputField.value;
+            const log = document.getElementById("log");
+
+        if (!isValid(guess)) {
+            alert("Invalid input! Must be 4 unique digits.");
+            inputField.value = ""; 
+            return;
+        }
+
+        attempts++;
+
+   
+        const result = checkAB(guess, answer);
+
+   
+        log.innerHTML += `第${attempts}次: ${guess} → ${result}<br>`;
+
+    
+        if (result === "4A0B") {
+            alert(`Correct! Total attempts: ${attempts}`);
+        }
+
+        inputField.value = ""; 
+    }
+
+
+    function isValid(str) {
+        if (str.length !== 4) return false;
+        if (!/^\d{4}$/.test(str)) return false;
+
+        let set = new Set(str);
+        return set.size === 4;
+    }
+ 
+
+    function checkAB(guess, ans) {
+        var A = 0;
+        var B = 0;
+ 
+        for (let i = 0; i < 4; i++) {
+            if (guess[i] === ans[i]) {
+                A++;
+            } else if (ans.includes(guess[i])) {
+                B++;
+            }
+        }
+
+        return `${A}A${B}B`;
+    }
+
+    </script>
+
+</body>
+</html>
