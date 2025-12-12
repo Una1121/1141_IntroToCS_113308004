@@ -27,7 +27,6 @@ table, th, td{
 }
 table {
     width: 1000px; 
-    margin: 0 auto;
 }
 thead {
     background-color: #f2f2f2;
